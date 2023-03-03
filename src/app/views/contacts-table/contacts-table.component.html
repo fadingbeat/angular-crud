@@ -1,0 +1,63 @@
+<button (click)="navigateToAdd()" mat-fab class="mat-fab-add">
+    <mat-icon>add</mat-icon>
+</button>
+<div class="table-wrapper" *ngIf="contacts">
+    <table mat-table [dataSource]="contacts.data">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Id</th>
+            <td mat-cell *matCellDef="let contact">{{ contact.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef>First name</th>
+            <td mat-cell *matCellDef="let contact">{{ contact.firstName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef>Last name</th>
+            <td mat-cell *matCellDef="let contact">{{ contact.lastName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let contact">
+                {{ contact.emailAddress || "-" }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef>Address</th>
+            <td mat-cell *matCellDef="let contact">{{ contact.address || "-" }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="phoneNumber">
+            <th mat-header-cell *matHeaderCellDef>Phone number</th>
+            <td mat-cell *matCellDef="let contact">
+                {{ contact.phoneNumber || "-" }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let contact">
+                <button (click)="editContact(contact.id)" mat-icon-button>
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button (click)="deleteContact(contact.id)" mat-icon-button>
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="visibleColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: visibleColumns"></tr>
+    </table>
+
+
+    <mat-paginator [length]="contacts.totalItems" [pageSize]="contacts.perPage" [pageSizeOptions]=" [5, 10, 20, 30]"
+        (page)=" onPaginateChange($event)" aria-label="Select page" showFirstLastButtons>
+    </mat-paginator>
+    <div *ngIf="spinnerLoading" class="spinner-wrapper">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div>
+  <div mat-dialog-content>
+    <div>{{ data.question }}</div>
+
+    <div class="mat-mt-4">{{ data.title }}</div>
+    <br />
+    <div mat-dialog-actions>
+      <div class="mat-flex mat-flex-row mat-justify-between">
+        <button mat-raised-button mat-dialog-close color="primary" class="mat-p-2" (click)="confirm()">
+          YES
+        </button>
+        <button mat-button mat-dialog-close color="warn" (click)="cancel()">
+          CANCEL
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
