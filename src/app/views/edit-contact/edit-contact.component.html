@@ -1,0 +1,53 @@
+<form [formGroup]="contactDataForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field appearance="fill">
+        <mat-label for="firstName">First name</mat-label>
+        <input matInput formControlName="firstName" />
+        <div *ngIf="this.contactDataForm.get('firstName')?.touched &&
+                      this.contactDataForm.get('firstName')?.invalid
+                    ">
+            <mat-error>First name is required!</mat-error>
+        </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label for="lastName">Last name</mat-label>
+        <input matInput formControlName="lastName" />
+        <div *ngIf="this.contactDataForm.get('lastName')?.touched &&
+                              this.contactDataForm.get('lastName')?.invalid
+                            ">
+            <mat-error>Last name is required!</mat-error>
+        </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label for="emailAddress">Email</mat-label>
+        <input matInput formControlName="emailAddress" />
+        <div *ngIf="this.contactDataForm.get('emailAddress')?.touched &&
+                              this.contactDataForm.get('emailAddress')?.invalid
+                            ">
+            <mat-error>E-mail address has to be in the format email@example.com</mat-error>
+        </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label for="address">Address</mat-label>
+        <textarea matInput formControlName="address" cdkTextareaAutosize></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label for="phoneNumber">Phone number</mat-label>
+        <input matInput formControlName="phoneNumber" />
+        <div *ngIf="this.contactDataForm.get('phoneNumber')?.touched &&
+                              this.contactDataForm.get('phoneNumber')?.invalid
+                            ">
+            <mat-error>Only numbers (0-9), plus (+) and space characters allowed</mat-error>
+        </div>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="!contactDataForm.valid">SAVE</button>
+    <button (click)="navigateToContacts()" mat-raised-button>CANCEL</button>
+    <div *ngIf="spinnerLoading">
+        <app-loading-spinner></app-loading-spinner>
+    </div>
+</form>
