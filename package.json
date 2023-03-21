@@ -4,7 +4,7 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "build": "ng build --prod --base-href 'https://fadingbeat.github.io/angular-crud/'",
+        "build": "ng build --output-path docs --base-href 'https://fadingbeat.github.io/angular-crud/'",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "deploy": "angular-cli-ghpages --dir=dist/angular-crud-app"
