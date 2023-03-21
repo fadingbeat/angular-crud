@@ -7,7 +7,7 @@
         "build": "ng build --output-path docs --base-href 'https://fadingbeat.github.io/angular-crud/'",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
-        "deploy": "angular-cli-ghpages --dir=dist/angular-crud-app"
+        "deploy": "angular-cli-ghpages --dir=docs"
     },
     "private": true,
     "dependencies": {
