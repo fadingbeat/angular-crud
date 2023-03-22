@@ -50,7 +50,7 @@ export class EditContactComponent implements OnInit {
 
     createContactForm() {
         this.contactDataForm = this.fb.group({
-            id: ['', Validators.required],
+            id: [''],
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             emailAddress: [
@@ -90,6 +90,7 @@ export class EditContactComponent implements OnInit {
                             duration: 5000,
                         }
                     );
+
                     this.navigateToContacts();
                 });
         } else {
