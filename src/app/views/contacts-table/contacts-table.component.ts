@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ContactModel } from '../../models/contact.model';
 import { ContactsService } from 'src/app/services/contacts.service';
 import { PageEvent } from '@angular/material/paginator';
@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationWindowComponent } from 'src/app/shared/confirmation-window/confirmation-window.component';
+import { MatTable } from '@angular/material/table';
 
 @Component({
     selector: 'app-contacts-table',
